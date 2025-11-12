@@ -1,6 +1,6 @@
 # Домашнее задание к занятию "`Базы данных`" - `Корбут Евгений`
 
-   [инструкция  по MarkDown](https://github.com/netology-code/sys-pattern-homework/blob/main/md-instruction.md)
+   [Инструкция  по MarkDown](https://github.com/netology-code/sys-pattern-homework/blob/main/md-instruction.md)
 
 
    [Руководство по оформлению Markdown файлов](https://gist.github.com/Jekins/2bf2d0638163f1294637#Code)
