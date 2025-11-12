@@ -1,4 +1,4 @@
-# Домашнее задание к занятию "`Название занятия`" - `Фамилия и имя студента`
+# Домашнее задание к занятию "`Базы данных`" - `Корбут Евгений`
 
 
 ### Инструкция по выполнению домашнего задания
@@ -26,13 +26,62 @@
 
 `Приведите ответ в свободной форме........`
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
-
+1. Таблица users
+| Поле | Тип данных |  Описание |
+| ----------- | ----------- | ----------- |
+| id    | SERIAL PRIMARY KEY   | Уникальный идентификатор пользователя   |
+| username   | VARCHAR(50) NOT NULL UNIQUE   | Имя пользователя   |
+| email    | VARCHAR(50) NOT NULL UNIQUE   | Электронная почта   |
+| password_hash    | VARCHAR(255) NOT NULL   | Хэш пароля   |
+| created_at    | TIMESTAMP DEFAULT NOW()  | Дата регистрации   |
+| is_active    | BOOLEAN DEFAULT TRUE  | Активен ли пользователь  |
+2. Таблица projects
+| Поле | Тип данных |  Описание |
+| ----------- | ----------- | ----------- |
+| id    | SERIAL PRIMARY KEY   | Уникальный идентификатор проекта   |
+| name   | VARCHAR(50) NOT NULL  | Название проекта  |
+| description    | TEXT  | Описание проекта   |
+| owner_id   | INTEGER REFERENCES users(id)   | Владелец проекта   |
+| created_at    | TIMESTAMP DEFAULT NOW()  | Дата создания  |
+3. Таблица tasks
+| Поле | Тип данных |  Описание |
+| ----------- | ----------- | ----------- |
+| id    | SERIAL PRIMARY KEY   | Идентификатор задачи   |
+| project_id   | INTEGER REFERENCES projects(id) ON DELETE CASCADE | Проект, к которому относится задача |
+| title | VARCHAR(200) NOT NULL | Заголовок задачи |
+| description | TEXT  | Подробное описание |
+| status    | VARCHAR(20) DEFAULT 'pending' | Статус задачи (pending, in_progress, done) |
+| priority | SMALLINT DEFAULT 3 | Приоритет (1 — высокий, 5 — низкий) |
+| due_date | DATE   | Срок выполнения |
+| created_at    | TIMESTAMP DEFAULT NOW()  | Дата создания  |
+| updated_at  | TIMESTAMP  | Последнее обновление |
+4. Таблица task_assignees
+| Поле | Тип данных |  Описание |
+| ----------- | ----------- | ----------- |
+| task_id    | INTEGER REFERENCES tasks(id) ON DELETE CASCADE   | Идентификатор задачи   |
+| user_id    | INTEGER REFERENCES users(id) ON DELETE CASCADE   | Идентификатор пользователя   |
+| assigned_at    | TIMESTAMP DEFAULT NOW()   | Дата назначения   |
+| PRIMARY KEY    | (task_id, user_id)   | Составной ключ   |
+5. Таблица comments
+| Поле | Тип данных |  Описание |
+| ----------- | ----------- | ----------- |
+| id  | SERIAL PRIMARY KEY | Идентификатор комментария |
+| task_id  | INTEGER REFERENCES tasks(id) ON DELETE CASCADE  | К какой задаче относится |
+| author_id  | INTEGER REFERENCES users(id) | Кто оставил комментарий |
+| content   | TEXT NOT NULL | Текст комментария |
+| created_at | TIMESTAMP DEFAULT NOW()  | Дата и время добавления |
+6. Таблица labels
+| Поле | Тип данных |  Описание |
+| ----------- | ----------- | ----------- |
+| id  | SERIAL PRIMARY KEY | Идентификатор метки |
+| name | VARCHAR(50) NOT NULL UNIQUE | Название метки |
+| color | VARCHAR(7) | Цвет в HEX-формате (например, #FF9900) |
+7. Таблица task_labels
+| Поле | Тип данных |  Описание |
+| ----------- | ----------- | ----------- |
+| task_id | INTEGER REFERENCES tasks(id) ON DELETE CASCADE | Идентификатор задачи |
+| label_id | INTEGER REFERENCES labels(id) ON DELETE CASCADE | Идентификатор метки |
+| PRIMARY KEY | (task_id, label_id) | Составной ключ |
 ```
 Поле для вставки кода...
 ....
