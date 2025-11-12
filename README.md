@@ -1,6 +1,8 @@
 # Домашнее задание к занятию "`Базы данных`" - `Корбут Евгений`
 
-   [инструкция  по MarkDown](https://github.com/netology-code/sys-pattern-homework/blob/main/md-instruction.md))
+   [инструкция  по MarkDown](https://github.com/netology-code/sys-pattern-homework/blob/main/md-instruction.md)
+
+   
    [Руководство по оформлению Markdown файлов](https://gist.github.com/Jekins/2bf2d0638163f1294637#Code)
   
 ### Задание 1
@@ -94,7 +96,7 @@
 
 ### Задание 2
 
-```SQL
+```sql
 -- Создаем таблицу пользователей
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -160,11 +162,13 @@ CREATE TABLE task_labels (
 ....
 
 ```
+# Task Manager - База данных
+
 ## Список таблиц реализованных в Docker
 
 ![Список таблиц](Список_таблиц_в_Docker.png)
 
-## Пример таблицы реализованной в Docker
+## Пример таблицы `users` реализованной в Docker
 
 ![Пример таблицы](Таблица_users_в_Docker.png)
 
