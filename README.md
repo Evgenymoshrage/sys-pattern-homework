@@ -2,7 +2,7 @@
 
    [инструкция  по MarkDown](https://github.com/netology-code/sys-pattern-homework/blob/main/md-instruction.md)
 
-   
+
    [Руководство по оформлению Markdown файлов](https://gist.github.com/Jekins/2bf2d0638163f1294637#Code)
   
 ### Задание 1
@@ -97,7 +97,7 @@
 ### Задание 2
 
 ```sql
--- Создаем таблицу пользователей
+-- Таблица пользователей
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -107,7 +107,7 @@ CREATE TABLE users (
     is_active BOOLEAN DEFAULT TRUE
 );
 
--- Создаем таблицу проектов
+-- Таблица проектов
 CREATE TABLE projects (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
@@ -116,7 +116,7 @@ CREATE TABLE projects (
     created_at TIMESTAMP DEFAULT NOW()
 );
 
--- Создаем таблицу задач
+-- Таблица задач
 CREATE TABLE tasks (
     id SERIAL PRIMARY KEY,
     project_id INTEGER REFERENCES projects(id) ON DELETE CASCADE,
